@@ -3,9 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const { connection, collections } = require("./db");
-const authorRouter = require("./routes/author-router");
-const articleRouter = require("./routes/article-router");
-const contactRouter = require("./routes/contact-router");
+const projectRouter = require("./routes/audit_project-router");
 
 const app = express();
 const apiPort = 4001;
@@ -21,14 +19,12 @@ connection.on(
 );
 
 app.get("/", (req, res) => {
-  res.send({ name: "Talent DAO API", version: "v1.0" });
+  res.send({ name: "White Hat DAO API", version: "v2.0" });
 });
 
-app.use("/api", authorRouter);
-app.use("/api", articleRouter);
-app.use("/api", contactRouter);
+app.use("/api", projectRouter);
 
 app.listen(process.env.PORT || apiPort, () => {
   console.log(`Server running on port ${apiPort}`);
-  console.log("");
+  console.log(`collections ${collections}`);
 });
