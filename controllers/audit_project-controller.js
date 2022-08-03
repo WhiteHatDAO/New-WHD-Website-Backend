@@ -55,7 +55,6 @@ getProjects = async (req, res) => {
 };
 
 getLatestProjects = async (req, res) => {
-  // {}, {}, { sort: { 'created_at': -1 } }
   await AuditProject.find({}, {}, { sort: { created_at: -1 } }, (err, projects) => {
     if (err) {
       return res.status(400).json({ success: false, error: err });
