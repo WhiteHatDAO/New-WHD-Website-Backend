@@ -17,7 +17,7 @@ const AuditProject = new Schema(
     audited_by: { type: String, required: false },
     safety_score: { type: Number, required: false },
     price: { type: Number, required: false },
-    marketcap: { type: String, required: true },
+    market: { type: String, required: true },
     onboard_date: { type: Date, required: true },
     tags: { type: String, required: true },
     socials: { type: String, required: true },
