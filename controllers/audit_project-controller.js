@@ -15,7 +15,6 @@ createProject = (req, res) => {
       description: req.body.description,
       verified: req.body.verified,
       audit_available: req.body.audit_available,
-      github: req.body.github,
       platform: req.body.platform,
       language: req.body.language,
       contract_addr: req.body.contract_addr,
