@@ -8,7 +8,7 @@ createProject = (req, res) => {
       audited_by: req.body.audited_by,
       safety_score: req.body.safety_score,
       price: req.body.price,
-      marketcap: req.body.marketcap,
+      market: req.body.market,
       onboard_date: req.body.onboard_date,
       tags: req.body.tags,
       socials: req.body.socials,
