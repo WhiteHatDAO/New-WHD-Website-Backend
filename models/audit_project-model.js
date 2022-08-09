@@ -10,6 +10,15 @@ const Member = new Schema({
     verified: { type: Boolean, required: true },
 })
 
+const Socials = new Schema({
+  twitter: {type: String, required: false},
+  github: {type: String, required: false},
+  discord: {type: String, required: false},
+  medium: {type: String, required: false},
+  web: {type: String, required: false},
+  telegram: {type: String, required: false},
+})
+
 const AuditProject = new Schema(
   {
     name: { type: String, required: true },
@@ -20,7 +29,7 @@ const AuditProject = new Schema(
     market: { type: String, required: true },
     onboard_date: { type: Date, required: true },
     tags: { type: String, required: true },
-    socials: { type: String, required: true },
+    socials: { type: Socials, required: true },
     description: { type: String, required: false },
     verified: { type: Boolean, required: true },
     audit_available: { type: Boolean, required: true },
