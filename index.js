@@ -4,6 +4,8 @@ const cors = require("cors");
 
 const { connection, collections } = require("./db");
 const projectRouter = require("./routes/audit_project-router");
+const mainProRouter = require("./routes/main-pro-router");
+// const fileRouter = require("./routes/file-router")
 
 const app = express();
 const apiPort = 4001;
@@ -23,6 +25,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", projectRouter);
+app.use("/api", mainProRouter);
+// app.use("/api", fileRouter);
+
 
 app.listen(process.env.PORT || apiPort, () => {
   console.log(`Server running on port ${apiPort}`);
