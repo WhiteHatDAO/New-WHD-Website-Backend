@@ -63,7 +63,19 @@ createMainPro = (req, res) => {
   );
 };
 
-updateMainPro = async (req, res) => {};
+updateMainPro = async (req, res) => {
+  await MainPro.updateOne({ _id: req.body.id }, {
+    home: req.body.home,
+    dao: req.body.dao,
+    rating: req.body.rating,
+    audit: req.body.audit
+  }, (err, mainPro) => {
+    if(err) {
+      return res.status(400).json({success: false, error: err})
+    }
+    return res.status(200).json({success: true, data: mainPro});
+  }).clone().catch((err) => console.error(err));
+};
 
 deleteMainPro = async (req, res) => {};
 
