@@ -19,6 +19,11 @@ const Socials = new Schema({
   telegram: {type: String, required: false},
 })
 
+const Insurance = new Schema({
+  name: { type: String, required: true },
+  link: { type: String, required: true }
+})
+
 const AuditProject = new Schema(
   {
     name: { type: String, required: true },
@@ -26,18 +31,40 @@ const AuditProject = new Schema(
     audited_by: { type: Array, required: false },
     safety_score: { type: Number, required: false },
     price: { type: Number, required: false },
-    market: { type: String, required: true },
+    market: { type: Number, required: true },
     onboard_date: { type: Date, required: true },
     tags: { type: Array, required: true },
     socials: { type: Socials, required: true },
     description: { type: String, required: false },
     verified: { type: Boolean, required: true },
-    audit_available: { type: Boolean, required: true },
-    platform: { type: Array, required: false },
+    platform: { type: String, required: false },
     language: { type: String, required: false },
     contract_addr: { type: String, required: true },
+    member: { type: Array, required: true },
+    codebase: { type:String, required: true },
+    circle_text: { type: String, required: true },
+    circle_subtext: { type: String, required: true },
+    bottom_link: { type: String, required: true },
+    contract_audits: { type: Array, required: false },
+    platform_audits: { type: Array, required: true },
+    bug_bounty: { type: Array, required: true },
+    insurance: { type: Insurance, required: true },
+    distribution: { type: String, required: true },
+    distribution_list: { type: Array, required: true },
+    security_text: {type: String, required: true},
+    security_list: {type: Array, required: true},
+    audited_files_text: { type: String, required: true },
+    audited_files_list: { type: Array, required: true },
+    metho: { type: String, required: true },
+    metho_tag_list: { type: String, required: true },
+    token_title: { type: String, required: true },
+    token_name: { type: String, required: true },
     token: { type: String, required: true },
-    member: { type: Array, required: true }
+    market_api: { type: String, required: true },
+    team_text: { type: String, required: true },
+    team_note: { type: String, required: true },
+    disclaimer: { type: String, required: true },
+    disclaimer_text: { type: String, required: true }
   },
   { timestamps: true }
 );
