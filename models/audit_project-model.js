@@ -56,7 +56,7 @@ const AuditProject = new Schema(
     audited_files_text: { type: String, required: true },
     audited_files_list: { type: Array, required: true },
     metho: { type: String, required: true },
-    metho_tag_list: { type: String, required: true },
+    methodology_tags: { type: String, required: true },
     token_title: { type: String, required: true },
     token_name: { type: String, required: true },
     token: { type: String, required: true },

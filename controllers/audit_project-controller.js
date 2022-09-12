@@ -33,7 +33,7 @@ createProject = (req, res) => {
       audited_files_text: req.body.audited_files_text,
       audited_files_list: req.body.audited_files_list,
       metho: req.body.metho,
-      metho_tag_list: req.body.metho_tag_list,
+      methodology_tags: req.body.methodology_tags,
       token_title: req.body.token_title,
       token_name: req.body.token_name,
       token: req.body.token,
