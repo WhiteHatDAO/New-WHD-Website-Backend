@@ -38,7 +38,7 @@ createProject = (req, res) => {
       token_name: req.body.token_name,
       token: req.body.token,
       market_api: req.body.market_api,
-      team_text: req.body.team_text,
+      team_title: req.body.team_text,
       team_note: req.body.team_note,
       disclaimer: req.body.disclaimer,
       disclaimer_text: req.body.disclaimer_text,
