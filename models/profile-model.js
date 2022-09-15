@@ -46,6 +46,14 @@ const Profile = new Schema(
     project_dao: {
         type: String,
         required: false
+    },
+    trust_level: {
+        type: String,
+        required: false
+    },
+    views: {
+        type: Number,
+        required: false
     }
   },
   { timestamps: true }

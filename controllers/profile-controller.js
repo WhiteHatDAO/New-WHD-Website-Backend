@@ -1,4 +1,4 @@
-const Profile = require("../models/main-pro-model");
+const Profile = require("../models/profile-model");
 
 createProfile = (req, res) => {
   Profile.create(
@@ -14,6 +14,8 @@ createProfile = (req, res) => {
       timezone: req.body.timezone,
       discord: req.body.discord,
       project_dao: req.body.project_dao,
+      trust_level: req.body.trust_level,
+      views: req.body.views,
     },
     (err) => {
       if (err) {
@@ -41,6 +43,8 @@ updateProfile = async (req, res) => {
       timezone: req.body.timezone,
       discord: req.body.discord,
       project_dao: req.body.project_dao,
+      trust_level: req.body.trust_level,
+      views: req.body.views,
     },
     (err, profile) => {
       if (err) {
@@ -70,8 +74,22 @@ getProfile = async (req, res) => {
     .catch((err) => console.error(err));
 };
 
+deleteProfile = async (req, res) => {
+  await Profile.deleteOne({ id: req.params.id }, (err) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+    return res
+      .status(200)
+      .json({ success: true, data: "Profile was deleted successfully." });
+  })
+    .clone()
+    .catch((err) => console.error(err));
+};
+
 module.exports = {
   createProfile,
   updateProfile,
   getProfile,
+  deleteProfile,
 };
