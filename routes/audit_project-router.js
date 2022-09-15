@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.post("/project", projectController.createProject);
 router.get("/projects", projectController.getProjects);
+router.put("/project", projectController.updateProject);
 router.get("/projects_latest", projectController.getLatestProjects);
 router.get("/project_find", projectController.getProjectsByField);
 
