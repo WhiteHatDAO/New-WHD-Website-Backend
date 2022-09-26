@@ -39,7 +39,7 @@ const AuditProject = new Schema(
     verified: { type: Boolean, required: true },
     platform: { type: String, required: false },
     language: { type: String, required: false },
-    contract_addr: { type: String, required: true },
+    contract_addr: { type: Array, required: true },
     member: { type: Array, required: true },
     codebase: { type:String, required: true },
     circle_text: { type: String, required: true },

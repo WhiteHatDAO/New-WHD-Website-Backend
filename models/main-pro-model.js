@@ -34,6 +34,10 @@ const Home = new Schema({
     type: Array,
     required: false,
   },
+  token_address: {
+    type: Array,
+    required: true
+  }
 });
 
 const DAO = new Schema({
