@@ -25,7 +25,7 @@ const Profile = new Schema(
     },
     email: {
         type: String,
-        required: true
+        required: false
     },
     twitter: {
         type: String,
@@ -33,7 +33,7 @@ const Profile = new Schema(
     },
     github: {
         type: String,
-        required: true
+        required: false
     },
     timezone: {
         type: String,

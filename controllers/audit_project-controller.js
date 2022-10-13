@@ -7,8 +7,6 @@ createProject = (req, res) => {
       logo: req.body.logo,
       audited_by: req.body.audited_by,
       safety_score: req.body.safety_score,
-      price: req.body.price,
-      market: req.body.market,
       onboard_date: req.body.onboard_date,
       tags: req.body.tags,
       socials: req.body.socials,
@@ -38,10 +36,12 @@ createProject = (req, res) => {
       token_name: req.body.token_name,
       token: req.body.token,
       market_api: req.body.market_api,
+      market_data: req.body.market_data,
       team_title: req.body.team_text,
       team_note: req.body.team_note,
       disclaimer: req.body.disclaimer,
       disclaimer_text: req.body.disclaimer_text,
+      multisig_address: req.body.multisig_address
     },
     (err) => {
       if (err) {
@@ -62,8 +62,6 @@ updateProject = async (req, res) => {
       logo: req.body.logo,
       audited_by: req.body.audited_by,
       safety_score: req.body.safety_score,
-      price: req.body.price,
-      market: req.body.market,
       onboard_date: req.body.onboard_date,
       tags: req.body.tags,
       socials: req.body.socials,
@@ -93,10 +91,12 @@ updateProject = async (req, res) => {
       token_name: req.body.token_name,
       token: req.body.token,
       market_api: req.body.market_api,
-      team_title: req.body.team_text,
+      market_data: req.body.market_data,
+      team_title: req.body.team_title,
       team_note: req.body.team_note,
       disclaimer: req.body.disclaimer,
       disclaimer_text: req.body.disclaimer_text,
+      multisig_address: req.body.multisig_address
     },
     (err, project) => {
       if (err) {
@@ -109,7 +109,19 @@ updateProject = async (req, res) => {
     .catch((err) => console.error(err));
 };
 
-deleteProject = async (req, res) => {};
+deleteProject = async (req, res) => {
+  console.log('id', req.params.id)
+  await AuditProject.findOneAndRemove({_id: req.params.id}, (err) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err });
+    }
+    return res
+      .status(200)
+      .json({ success: true, data: "Project was deleted successfully." });
+  })
+    .clone()
+    .catch((err) => console.error(err));
+};
 
 getProjects = async (req, res) => {
   await AuditProject.find(req.query, (err, project) => {
@@ -179,6 +191,7 @@ getProjectsByField = async (req, res) => {
 module.exports = {
   createProject,
   getProjects,
+  deleteProject,
   updateProject,
   getLatestProjects,
   getProjectsByField,

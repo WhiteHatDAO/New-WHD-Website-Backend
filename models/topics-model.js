@@ -12,7 +12,7 @@ const Topics = new Schema(
       required: true
     },
     topic: {
-      type: String,
+      type: Array,
       required: true
     },
     category: {

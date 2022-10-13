@@ -14,6 +14,10 @@ const Home = new Schema({
     type: String,
     required: true,
   },
+  title_button_link: {
+    type: String,
+    required: true
+  },
   token: {
     type: String,
     required: true,
@@ -37,6 +41,26 @@ const Home = new Schema({
   token_address: {
     type: Array,
     required: true
+  },
+  service_rating_link: {
+    type: String,
+    required: false
+  },
+  service_web3_link: {
+    type: String,
+    required: false
+  },
+  service_contract_link: {
+    type: String,
+    required: false
+  },
+  networks: {
+    type: Array,
+    required: false
+  },
+  exchange: {
+    type: Array,
+    required: false
   }
 });
 
@@ -60,6 +84,10 @@ const DAO = new Schema({
   phase_design: {
     type: Array,
     required: false,
+  },
+  snapshot_link: {
+    type: String,
+    required: false
   },
   strategy_title: {
     type: String,
@@ -121,6 +149,30 @@ const DAO = new Schema({
     type: String,
     required: true,
   },
+  contributor_title: {
+    type: String,
+    required: true,
+  },
+  contributor_overview: {
+    type: String,
+    required: true,
+  },
+  contributor_developer: {
+    type: String,
+    required: false,
+  },
+  contributor_ambassador: {
+    type: String,
+    required: false
+  },
+  message_title: {
+    type: String,
+    required: true
+  },
+  message_text: {
+    type: String,
+    required: false
+  }
 });
 
 const Rating = new Schema({
@@ -132,9 +184,17 @@ const Rating = new Schema({
     type: String,
     required: true,
   },
+  rating_button_first_link: {
+    type: String,
+    required: false
+  },
   rating_button_second: {
     type: String,
     required: true,
+  },
+  rating_button_second_link: {
+    type: String,
+    required: false,
   },
 });
 
@@ -164,7 +224,7 @@ const Audit = new Schema({
     required: true,
   },
   terms_text: {
-    type: String,
+    type: Array,
     required: true,
   },
   audit_report: {
