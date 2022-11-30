@@ -8,6 +8,8 @@ const mainProRouter = require("./routes/main-pro-router");
 const profileRouter = require("./routes/profile-router");
 const replyRouter = require("./routes/replies-router");
 const topicRouter = require("./routes/topics-router");
+const annRouter = require("./routes/announcements-router");
+const governanceRouter = require("./routes/governance-router");
 
 const app = express();
 const apiPort = 4001;
@@ -44,6 +46,8 @@ app.use("/api", mainProRouter);
 app.use("/api", profileRouter);
 app.use("/api", replyRouter);
 app.use("/api", topicRouter);
+app.use("/api", annRouter);
+app.use("/api", governanceRouter);
 
 app.listen(process.env.PORT || apiPort, () => {
   console.log(`Server running on port ${apiPort}`);
