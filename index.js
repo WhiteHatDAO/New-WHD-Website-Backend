@@ -10,10 +10,12 @@ const replyRouter = require("./routes/replies-router");
 const topicRouter = require("./routes/topics-router");
 const annRouter = require("./routes/announcements-router");
 const governanceRouter = require("./routes/governance-router");
+const roleRouter = require("./routes/role-router");
 
 const app = express();
 const apiPort = 4001;
 
+app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(function(req, res, next) {
@@ -48,6 +50,7 @@ app.use("/api", replyRouter);
 app.use("/api", topicRouter);
 app.use("/api", annRouter);
 app.use("/api", governanceRouter);
+app.use("/api", roleRouter);
 
 app.listen(process.env.PORT || apiPort, () => {
   console.log(`Server running on port ${apiPort}`);
