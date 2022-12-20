@@ -15,17 +15,19 @@ const roleRouter = require("./routes/role-router");
 const app = express();
 const apiPort = 4001;
 
-app.use(cors());
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  const allowedOrigins = ['http://45.15.25.137', 'https://whitehatdao.com']
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   res.header("Access-Control-Allow-Headers", "*");
   res.header("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS");
   res.header("Content-Type", "application/json");
   res.header("Access-Control-Allow-Methods", "*");
   // res.header("Access-Control-Request-Headers", "Origin, X-Requested-With, Content-Type, Accept, GET,PUT,POST,DELETE,OPTIONS");
-  req.header("Access-Control-Allow-Origin", "*");
   req.header("Access-Control-Allow-Headers", "*");
   req.header("Access-Control-Allow-Methods", "*");
   req.header("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS");
