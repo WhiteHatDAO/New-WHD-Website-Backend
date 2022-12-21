@@ -18,7 +18,7 @@ const apiPort = 4001;
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(function(req, res, next) {
-  const allowedOrigins = ['http://45.15.25.137', 'https://whitehatdao.com']
+  const allowedOrigins = ['http://45.15.25.137', 'https://admintest.whitehatdao.com', 'https://whitehatdao.com']
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
